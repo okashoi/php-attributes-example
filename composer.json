@@ -14,5 +14,13 @@
     "psr-4": {
       "Okashoi\\PhpAttributesExample\\": "src/"
     }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Okashoi\\PhpAttributesExample\\": "tests/"
+    }
+  },
+  "scripts": {
+    "test": "phpunit --bootstrap=vendor/autoload.php tests"
   }
 }
