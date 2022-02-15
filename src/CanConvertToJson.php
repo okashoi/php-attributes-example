@@ -5,13 +5,9 @@ declare(strict_types=1);
 namespace Okashoi\PhpAttributesExample;
 
 use ReflectionClass;
-use UnexpectedValueException;
 
 trait CanConvertToJson
 {
-    /**
-     * @throws UnexpectedValueException
-     */
     public function jsonSerialize(): array
     {
         $data = [];
@@ -29,10 +25,6 @@ trait CanConvertToJson
 
             if ($options & JSON::OPTION_OMIT_EMPTY && empty($this->$instancePropertyName)) {
                 continue;
-            }
-
-            if (is_null($this->$instancePropertyName)) {
-                throw new UnexpectedValueException();
             }
 
             $data[$jsonPropertyName] = $this->$instancePropertyName;
