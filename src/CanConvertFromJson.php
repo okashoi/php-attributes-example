@@ -35,7 +35,7 @@ trait CanConvertFromJson
             $instancePropertyName = $property->getName();
 
             if (!isset($data[$jsonPropertyName])) {
-                throw new UnexpectedValueException();
+                $instance->$instancePropertyName = null;
             } elseif(str_contains($type, 'int')) {
                 $instance->$instancePropertyName = (int)$data[$jsonPropertyName];
             } elseif (str_contains($type, 'float')) {
